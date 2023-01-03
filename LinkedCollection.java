@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class LinkedCollection {
     public static void main(String[] args) {
         LinkedList<Integer> list=new LinkedList<Integer>();

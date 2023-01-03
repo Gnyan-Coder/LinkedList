@@ -38,6 +38,28 @@ public class LL {
            lastNode.next=newNode;
         }  
     }
+    // add node in midle of linked list
+
+    public void addMid(int data,int position){
+        if(position==1){
+            addFirt(data);
+            return;
+        }
+        if(size==position){
+            addEnd(data);
+            return;
+        }
+        Node temp=head;
+        int cnt=1;
+        while(cnt<position-1){
+            temp=temp.next;
+            cnt++;
+        }
+        // creating node for data
+        Node nodeToInsert=new Node(data);
+        nodeToInsert.next=temp.next;
+        temp.next=nodeToInsert;
+    }
 
     // delete the first node of linked list
     public void deleteFirst(){
@@ -69,6 +91,29 @@ public class LL {
         secondlast.next=null;
     }
 
+    // delete node in middle in linkd list
+
+    public void deleteMid(int position){
+        if(position==1){
+            deleteFirst();
+            return;
+        }
+        if(position==size){
+            deleteLast();
+            return;
+        }
+        Node curr=head;
+        Node prev=null;
+        int cnt=1;
+        while(cnt<position){
+            prev=curr;
+            curr=curr.next;
+            cnt++;
+        }
+        size--;
+        prev.next=curr.next;
+    }
+
 
 
 
@@ -89,25 +134,17 @@ public class LL {
 
     public static void main(String[] args) {
         LL list=new LL();
-        // list.addFirt(10);
-        // list.addFirt(20);
-        // list.addFirt(30);
-        // list.addFirt(40);
-        // System.out.println("Display the added first added list");
-        // list.display();
         list.addEnd(100);
         list.addEnd(200);
         list.addEnd(300);
         list.addEnd(400);
         System.out.println("Display the added at the end added list");
         list.display();
-        System.out.println("delete firts");
-        list.deleteFirst();
+        System.out.println("dfnsodfnsdofnso");
+        list.deleteMid(2);
         list.display();
-        System.out.println("delete lastnode");
-        list.deleteLast();
-        list.display();
-       System.out.println( "size of the node"+list.getSize());
+        System.out.println(list.size);
+    
 
     }
 }
